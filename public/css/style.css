@@ -1,0 +1,276 @@
+
+body {
+  font-family: "Plus Jakarta Sans", sans-serif !important;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+} 
+
+.container{
+    flex: 1;
+}
+
+
+/* Nav Bar */
+.navbar{
+    height: 5rem;
+    background-color:whitesmoke;
+}
+
+.fa-compass{
+    color:#fe424d ;
+    font-size: 2rem;
+}
+
+.nav-link{
+    color: #222222 !important;
+}
+
+/* Footer */
+.f-info-links a{
+text-decoration: none;
+color: #222222;
+}
+
+.f-info-links a:hover{
+   text-decoration: underline;
+}
+
+.f-info-links,
+.f-info-socials,.f-info-brand {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.f-info-socials i {
+     font-size: 1.3rem;
+   margin-right: 1rem;
+}
+
+.f-info {
+    text-align: center;
+    height: 8rem;
+    background-color: #ebebeb;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: space-evenly;
+}
+
+/* Cards */
+.listing-card {
+    border: none !important;
+    margin-bottom: 2rem;
+}
+
+.card-img-top {
+    border-radius: 1.2rem;
+    border-top-left-radius: 1.2rem;
+    border-top-right-radius: 1.2rem;
+    width: 100% !important;
+    object-fit: cover !important;
+}
+
+
+
+.card-body {
+    padding: 0 !important;
+}
+
+.card-text p {
+   font-weight: 400;
+}
+
+.listing-link {
+    text-decoration: none;
+}
+
+/* Card Effect */
+.card-img-overlay {
+    opacity:0 ;
+}
+
+/* New Page */
+.add-btn{
+    background-color: #fe424d !important;
+        border: none !important;
+}
+
+/* Edit Page */
+.edit-btn{
+     background-color: #fe424d !important;
+     border: none !important;
+}
+
+/* Show page */
+.show-img{
+    height: 30vh;
+}
+
+.btns{
+   display: flex; 
+}
+
+.show-card{
+    padding-left: 0;
+    padding-right: 0;
+}
+ 
+/* ================================== */
+/* FINAL, DEFINITIVE NAVBAR STYLES    */
+/* ================================== */
+
+/* --- 1. Base Styles for Search Bar (All Screen Sizes) --- */
+
+
+ .search-btn {
+    background-color: #fe424d;
+    color: white;
+    border-radius:  25px;
+    padding: 0 1rem 0 1rem;
+  }
+   .search-btn:hover {
+    background-color: #fe424d;
+    color: white;
+  }
+
+  .search-btn i {
+    display: inline;
+    margin-right: 0.5rem;
+  }
+
+  .search-inp {
+    border-radius: 25px;
+    padding: 0.5rem 3rem 0.5rem 3rem;
+    font-size: 1rem;
+  }
+
+/* --- 2. Large Screen Layout: Centered Search Bar --- */
+/* This applies to screens 768px and wider */
+@media (min-width: 768px) {
+  /* This prevents the links on the right from affecting the centering */
+  .navbar-collapse {
+    flex-grow: 0;
+  }
+
+  /* This centers the search bar */
+  .navbar .search-bar {
+    width: 50%;
+    max-width: 500px;
+    margin: 0 auto; /* The key to centering */
+  }
+}
+
+/* --- 3. Small Screen Layout: Shrinking Search Bar --- */
+/* This applies to screens under 768px */
+@media (max-width: 767.98px) {
+  /* Make the search bar grow to fill the available space */
+  .navbar .search-bar {
+    flex-grow: 1;
+    margin: 0 0.75rem;
+  }
+
+  /* Reduce padding on the input to help it fit */
+  .navbar .search-inp {
+    padding: 0.5rem 0.75rem;
+  }
+
+  /* Hide the button's text to save space */
+  .navbar .search-btn {
+    font-size: 0;
+    padding: 0.375rem 0.75rem;
+  }
+
+  /* Show the icon again and remove its margin */
+  .navbar .search-btn i {
+    font-size: 1rem;
+    margin-right: 0;
+  }
+}
+
+/* ================================== */
+/* Custom Hamburger Menu Icon Styles  */
+/* ================================== */
+
+.navbar-toggler {
+  border: none; /* Removes the default border */
+}
+
+.navbar-toggler:focus {
+  box-shadow: none; /* Removes the blue outline when clicked */
+}
+
+/* Target the Font Awesome icon inside the button */
+.navbar-toggler i {
+   /* Change the color to your theme's red */
+  font-size: 1.5rem; /* Make the icon larger */
+}
+
+/* 2. This is the style that applies ON HOVER */
+.navbar-toggler:hover i {
+  color: #fe424d; /* Changes to your theme's red when hovered */
+}
+
+/* ================================== */
+/* Custom Styles for Collapsed Menu   */
+/* ================================== */
+
+@media (max-width: 767.98px) {
+
+  /* --- NEW STYLES FOR THE DROPDOWN CONTAINER --- */
+  .navbar-collapse {
+    background-color: white;          /* The new background color */
+    padding: 1rem;                    /* Adds space around all the items */
+    margin-top: 0.5rem;               /* Adds a small gap below the main navbar */
+    border-radius: 10px;              /* Gives the dropdown rounded corners */
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1); /* Adds a soft shadow for depth */
+  }
+
+  /* Center all the links inside the dropdown */
+  .navbar-collapse .navbar-nav {
+    text-align: center;
+    margin-top: 0; /* No longer needed as container has padding */
+  }
+
+  /* Style each individual link/item in the dropdown */
+  .navbar-collapse .nav-link {
+    padding: 0.75rem 1rem; 
+    font-size: 1.1rem;      
+    border-bottom: 1px solid #eee; 
+    transition: background-color 0.2s ease-in-out; 
+  }
+
+  /* Remove the line from the very last item */
+  .navbar-collapse .navbar-nav > *:last-child .nav-link,
+  .navbar-collapse .navbar-nav > *:last-child {
+    border-bottom: none;
+  }
+  
+  /* Style for the hover effect */
+  .navbar-collapse .nav-link:hover {
+    background-color: #f8f9fa; 
+    color: #fe424d;            
+  }
+
+  /* Also style the tax toggle and search bar to look consistent */
+  .navbar-collapse .form-switch,
+  .navbar-collapse .d-flex {
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid #eee;
+  }
+}
+
+/* This rule targets the card on the show page */
+.show-card {
+  border-radius: 1rem;  /* Round all corners of the card */
+  overflow: hidden;     /* Force everything inside to clip to the card's shape */
+  border: none;         /* Remove any default border */
+}
+
+.show-img {
+  width: 100%;
+  height: 65vh; /* 'vh' means % of the viewport/screen height. Adjust 65 if you want it taller or shorter. */
+  object-fit: cover; /* This makes the image fill the space without stretching */
+}

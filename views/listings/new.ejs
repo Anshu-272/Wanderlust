@@ -1,0 +1,246 @@
+<!-- <% layout("/layouts/boilerplate") %>
+<div class="row mt-3">
+    <div class="col-8 offset-2" >
+
+    <h3>Create a New Listing</h3>
+   <form method="POST" action="/listings" novalidate class="needs-validation" enctype="multipart/form-data">
+
+    <div class="mb-3">
+       <label for="title" class="form-label">Title</label>
+       <input 
+         name="listing[title]" 
+         placeholder="add a catchy title"
+         type="text"
+         class="form-control"
+         required
+         id="title"
+       /> 
+       <div class="valid-feedback">Title looks good!</div>
+    </div>
+
+    <div  class="mb-3">
+       <label for="description" class="form-label">Description</label>
+       <textarea
+         name="listing[description]"
+         class="form-control"
+         required
+         id="description">
+      </textarea>
+       <div class="invalid-feedback">Please enter a short description </div>
+    </div> 
+       
+    <div  class="mb-3">
+        <label for="image" class="form-label">Upload Listing Image</label>
+        <input
+           name="listing[images]"   
+           type="file" 
+           class="form-control"
+           required 
+           multiple/>     
+    </div>
+
+    <div class="row">
+        <div  class="mb-3 col-md-4">
+           <label for="price" class="form-label">Price</label>
+           <input
+              name="listing[price]"
+              placeholder="enter price"
+              type="number"
+              class="form-control"  
+              required/>
+               <div class="invalid-feedback">Price should be valid </div>
+        </div>   
+       
+        <div  class="mb-3 col-md-8">
+           <label for="country" class="form-label">Country</label>
+           <input 
+              name="listing[country]"
+               placeholder="enter country"
+               type="text" 
+               class="form-control" 
+               required/>
+         <div class="invalid-feedback">Country name should be valid</div>   
+        </div>   
+    </div>
+      
+    
+       
+    <div  class="mb-3">
+        <label for="location" class="form-label">Enter Location</label>
+        <input 
+           name="listing[location]"
+           placeholder="enter location"
+           type="text"
+           class="form-control"
+           required/>
+         <div class="invalid-feedback">Location should be valid </div>
+    </div> 
+
+     <div class="mb-3">
+        <label for="category" class="form-label">Category</label>
+        <select name="listing[category]" id="category" class="form-select" required>
+            <option value="Trending">Trending</option>
+            <option value="Luxury">Luxury</option>
+            <option value="Rooms">Rooms</option>
+            <option value="Iconic Cities">Iconic Cities</option>
+            <option value="Mountains">Mountains</option>
+            <option value="Castles">Castles</option>
+            <option value="Beach view">Beach view</option>
+            <option value="Camping">Camping</option>
+            <option value="Farms">Farms</option>
+            <option value="Arctic">Arctic</option>
+            <option value="Domes">Domes</option>
+            <option value="Boats">Boats</option>
+        </select>
+    </div>
+
+
+    <br /> 
+
+         
+     <button class="btn btn-dark add-btn">Add</button>
+     <br /><br />
+       
+   </form>
+   </div> 
+   </div>
+
+
+ <script>
+    // 1. Get references to the form fields
+    const titleInput = document.getElementById('title');
+    const descriptionInput = document.getElementById('description');
+    const categorySelect = document.getElementById('category');
+
+    // 2. Define the keywords for each category
+    const categoryKeywords = {
+        'Mountains': ['mountain', 'peak', 'cabin', 'altitude', 'himalayas', 'alpine'],
+        'Luxury': ['luxury', 'villa', 'penthouse', 'mansion', 'exclusive', 'premium', 'resort'],
+        'Farms': ['farm', 'barn', 'countryside', 'rural', 'acreage', 'orchard'],
+        'Beach view': ['beach', 'ocean', 'sea', 'coast', 'waterfront', 'seaside'],
+        'Castles': ['castle', 'fortress', 'chateau', 'palace'],
+        'Camping': ['tent', 'campsite', 'glamping', 'outdoors', 'wilderness'],
+        'Arctic': ['arctic', 'snow', 'ice', 'frozen', 'glacier', 'winter'],
+        'Boats': ['boat', 'houseboat', 'yacht', 'vessel'],
+        'Iconic Cities': ['city', 'downtown', 'metropolis', 'urban', 'skyline'],
+        'Domes': ['dome', 'geodesic'],
+        'Trending': ['trending', 'popular', 'hotspot'],
+        'Rooms': ['room', 'apartment', 'suite', 'studio']
+    };
+
+    // 3. Create a function that runs every time the user types
+    const autoSelectCategory = () => {
+        // Combine the text from the title and description, and make it lowercase
+        const combinedText = (titleInput.value + ' ' + descriptionInput.value).toLowerCase();
+
+        // Loop through our keywords to find a match
+        for (const category in categoryKeywords) {
+            for (const keyword of categoryKeywords[category]) {
+                if (combinedText.includes(keyword)) {
+                    // If a keyword is found, select the matching category in the dropdown
+                    categorySelect.value = category;
+                    return; // Stop after the first match
+                }
+            }
+        }
+    };
+
+    // 4. Attach the function to the input fields
+    titleInput.addEventListener('input', autoSelectCategory);
+    descriptionInput.addEventListener('input', autoSelectCategory);
+</script>   -->
+
+<% layout("/layouts/boilerplate") %>
+<div class="row mt-3">
+    <div class="col-8 offset-2" >
+
+    <h3>Create a New Listing</h3>
+   <form method="POST" action="/listings" novalidate class="needs-validation" enctype="multipart/form-data">
+
+    <div class="mb-3">
+       <label for="title" class="form-label">Title</label>
+       <input name="listing[title]" placeholder="add a catchy title" type="text" class="form-control" required id="title" /> 
+    </div>
+
+    <div  class="mb-3">
+       <label for="description" class="form-label">Description</label>
+       <textarea name="listing[description]" class="form-control" required id="description"></textarea>
+    </div> 
+        
+    <div  class="mb-3">
+         <label for="image" class="form-label">Upload Listing Image(s)</label>
+         <input name="listing[images]" type="file" class="form-control" required multiple />       
+    </div>
+
+    <div class="row">
+         <div  class="mb-3 col-md-4">
+            <label for="price" class="form-label">Price</label>
+            <input name="listing[price]" placeholder="enter price" type="number" class="form-control" required/>
+         </div>  
+        
+         <div  class="mb-3 col-md-8">
+            <label for="country" class="form-label">Country</label>
+            <input name="listing[country]" placeholder="enter country" type="text" class="form-control" required/>
+         </div>  
+    </div>
+        
+    <div  class="mb-3">
+         <label for="location" class="form-label">Enter Location</label>
+         <input name="listing[location]" placeholder="enter location" type="text" class="form-control" required/>
+    </div> 
+
+    <div class="mb-3">
+        <label for="category" class="form-label">Category</label>
+        <select name="listing[category]" id="category" class="form-select" required>
+            <option value="Trending">Trending</option>
+            <option value="Rooms">Rooms</option>
+            <option value="Iconic Cities">Iconic Cities</option>
+            <option value="Mountains">Mountains</option>
+            <option value="Castles">Castles</option>
+            <option value="Beach view">Beach view</option>
+            <option value="Camping">Camping</option>
+            <option value="Farms">Farms</option>
+            <option value="Arctic">Arctic</option>
+            <option value="Domes">Domes</option>
+            <option value="Boats">Boats</option>
+            <option value="Luxury">Luxury</option>
+        </select>
+    </div>
+    <br /> 
+   <button class="btn btn-dark add-btn">Add</button>
+   <br /><br />
+   </form>
+   </div> 
+</div>
+
+<script>
+    const titleInput = document.getElementById('title');
+    const descriptionInput = document.getElementById('description');
+    const categorySelect = document.getElementById('category');
+    const categoryKeywords = {
+        'Mountains': ['mountain', 'peak', 'cabin', 'altitude', 'himalayas', 'alpine'],
+        'Farms': ['farm', 'barn', 'countryside', 'rural', 'acreage', 'orchard'],
+        'Beach view': ['beach', 'ocean', 'sea', 'coast', 'waterfront', 'seaside'],
+        'Castles': ['castle', 'fortress', 'chateau', 'palace'],
+        'Camping': ['tent', 'campsite', 'glamping', 'outdoors', 'wilderness'],
+        'Arctic': ['arctic', 'snow', 'ice', 'frozen', 'glacier', 'winter'],
+        'Boats': ['boat', 'houseboat', 'yacht', 'vessel'],
+        'Iconic Cities': ['city', 'downtown', 'metropolis', 'urban', 'skyline'],
+        'Domes': ['dome', 'geodesic'],
+        'Luxury': ['luxury', 'villa', 'penthouse', 'mansion', 'exclusive', 'premium', 'resort'],
+        'Rooms': ['room', 'apartment', 'suite', 'studio']
+    };
+    const autoSelectCategory = () => {
+        const combinedText = (titleInput.value + ' ' + descriptionInput.value).toLowerCase();
+        for (const category in categoryKeywords) {
+            for (const keyword of categoryKeywords[category]) {
+                if (combinedText.includes(keyword)) {
+                    categorySelect.value = category;
+                    return;
+                }
+            }
+        }
+    };
+    titleInput.addEventListener('input', autoSelectCategory);
+    descriptionInput.addEventListener('input', autoSelectCategory);
+</script>
